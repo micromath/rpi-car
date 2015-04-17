@@ -1,0 +1,22 @@
+Provide an int arg if you want to flash on something other than 6
+MRAA Version: v0.6.2
+Starting Blinking on IO6
+Initialised pin6
+off
+on
+off
+on
+off
+on
+off
+on
+off
+on
+off
+on
+off
+on
+off
+^Cclosing IO6 nicely
+on
+
