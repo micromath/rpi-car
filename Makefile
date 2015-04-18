@@ -1,7 +1,7 @@
 CC=gcc
-CC_FLAGS=
+CC_FLAGS=-lwiringPi
 NAME=carctl
-LIBS=-lwiringPi
+
 
 all: $(NAME)
 
@@ -12,7 +12,7 @@ clear:
 	rm -fv $(NAME)
 
 $(NAME): $(NAME).c
-	$(CC) $(NAME).c -o $(NAME) $(LIBS)
+	$(CC) $(NAME).c -o $(NAME) $(CC_FLAGS)
 
 
 
