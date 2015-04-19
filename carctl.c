@@ -7,36 +7,24 @@
 #include <time.h>	// nanosleep
 #include <wiringPi.h>	// a must
 
-// 20ns to sleep
-//#define CLOCKINTERVAL 20
 // use wiringPi pinout
-#define MOTOR_LEFT 4
-#define MOTOR_RIGHT 5
-#define MOTOR_UP 6
-#define MOTOR_DOWN 7
-
-static struct timespec TIMCLOCKINTERVAL;
-//static struct timespec TIMFRAMERATE;
+#define MOTOR_LEFT 1
+#define MOTOR_RIGHT 2
+#define MOTOR_UP 3
+#define MOTOR_DOWN 4
 
 void runControl(int pin_motor, unsigned int seconds)
 {
-	TIMCLOCKINTERVAL.tv_sec = seconds;
-	//usleep(CLOCKINTERVAL);
-	//delayMicroseconds(CLOCKINTERVAL);
 	digitalWrite(pin_motor, HIGH);
-	//nanosleep(&TIMCLOCKINTERVAL, NULL);
 	if ( seconds )
 		sleep(seconds);
 	digitalWrite(pin_motor, LOW);
-	//usleep(CLOCKINTERVAL);
-	//delayMicroseconds(CLOCKINTERVAL);
 }
 
 int main(int argc, const char* argv[])
 {
 	int result = 0;
 	int nextColor;
-	unsigned char nextR, nextG, nextB, colorR, colorG, colorB, maxDiff;
 	
 	result = wiringPiSetup();
 	if (result < 0)
